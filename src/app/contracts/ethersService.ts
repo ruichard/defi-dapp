@@ -31,7 +31,6 @@ export interface MarketSummary {
 export type AllMarketSummariesResponse = MarketSummary[];
 
 export async function fetchAllMarketSummaries(rpcUrl: string, contractAddress: string): Promise<AllMarketSummariesResponse> {
-  alert(rpcUrl)
     const provider = new ethers.providers.JsonRpcProvider(rpcUrl);
     const contract = new ethers.Contract(contractAddress, PerpsV2MarketDataABI, provider);
     return await contract.allProxiedMarketSummaries();
